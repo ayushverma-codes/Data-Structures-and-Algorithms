@@ -8,4 +8,4 @@
 
 So, in each pass: One element is placed in its correct final position.
 
-![selection sort](../images\selection_sort.png)
+![selection sort](../images/selection_sort.png)
