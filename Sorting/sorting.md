@@ -1,6 +1,6 @@
 # Sorting
 
-## Selection Sort
+## 1. Selection Sort
 
 1. Finds the smallest element in the unsorted part of the array.
 2. Places it at the start of the unsorted section.
@@ -63,7 +63,7 @@ The outer loop runs N−1 times, and the inner loop runs decreasingly from N−1
 **Space Complexity:** O(1)
 
 
-## Bubble Sort
+## 2. Bubble Sort
 
 Bubble Sort repeatedly traverses the array, compares adjacent elements, and swaps them if they’re in the wrong order. 
 
@@ -131,3 +131,79 @@ Insertion sort builds the sorted array one element at a time, by picking the nex
 **Average case:** O(N²)
 
 **Space Complexity:** O(1)
+
+
+## 4. Merge Sort
+
+- A Divide and Conquer algorithm.
+
+- Recursively splits the array into halves until each subarray has one element.
+
+
+-  Merges the sorted subarrays back together.
+
+
+
+**Algorithm:**
+
+```
+MergeSort(arr, low, high)
+{
+  if(low>=high) 
+        return;
+
+  mid = (low+high)/2
+  MergeSort(arr, low, mid)
+  MergeSort(arr, mid+1, high)
+  merge(arr, low, mid, high)
+}
+
+```
+
+<br>
+
+```
+void merge(vector <int> &arr, int low, int mid, int high){
+    int left = low;
+    int right = mid+1;
+    vector<int> temp;
+
+    while (left<=mid && right<=high)
+    {
+        if(arr[left]<=arr[right]){
+            temp.push_back(arr[left]);
+            left++;
+        }
+        else{
+            temp.push_back(arr[right]);
+            right++;
+        }
+    }
+
+    //if elements are left in left array
+    while(left<=mid){
+        temp.push_back(arr[left]);
+        left++;
+    }
+    
+    //if elements are left in right array
+    while(right<=high){
+        temp.push_back(arr[right]);
+        right++;
+    }
+
+    //transfeering the temp eleemts to arr
+    for (int i = low; i <=high; i++)
+    {
+        arr[i] = temp[i-low];
+    }
+    
+}
+
+```
+
+**Time Complexity:** O(nlogn) 
+
+Reason: At each step, we divide the whole array, for that logn and we assume n steps are taken to get sorted array, so overall time complexity will be nlogn
+
+**Space complexity:** O(n)  
