@@ -104,3 +104,30 @@ This simplifies to about N²/2 steps.
 2. **Worst case:** Still O(N²) (when the array is reversed).
 
 **Space Complexity:** O(1)
+
+
+## 3. Insertion Sort
+
+Insertion sort builds the sorted array one element at a time, by picking the next element and placing it in its correct position among the already-sorted part of the array.
+
+**Steps:**
+1. Start from the second element (index 1) — the first element is already sorted.
+2. Compare the current element with the previous elements in the sorted portion.
+3. Shift all elements greater than the current element one position to the right.
+4. Insert the current element at the correct position.
+5. Repeat until all elements are placed in order.
+
+
+<img src="../images/insertion_sort.jpg" alt="selection sort" width="500"/>
+<img src="../images/insertion_sort2.jpg" alt="selection sort" width="500"/>
+<br>
+
+**Time Complexity:**
+
+**Best case (Already sorted):** O(N) ; if the given array is already sorted, the outer loop will only run and the inner loop will run for times. 
+
+**Worst case (Reverse sorted):** O(N²)
+
+**Average case:** O(N²)
+
+**Space Complexity:** O(1)
