@@ -61,3 +61,46 @@ After selection sort:
 The outer loop runs N−1 times, and the inner loop runs decreasingly from N−1 to 1, giving (N-1) + (N-2) + .... + 1 = N(N-1)/2
 
 **Space Complexity:** O(1)
+
+
+## Bubble Sort
+
+Bubble Sort repeatedly traverses the array, compares adjacent elements, and swaps them if they’re in the wrong order. 
+
+With each pass, the largest element among the unsorted section “bubbles up” to its correct position at the end.
+
+<img src="../images/bubble_sort.png" alt="selection sort" width="500"/>
+
+**For optimization:**
+
+Add a flag (e.g., swapped = false) before the inner loop.
+
+Whenever you swap two elements, set swapped = true.
+
+After the inner loop, check:
+
+  If swapped is still false, break out — no more passes are needed.
+
+<br>
+
+**Time complexity:** O(N²) (where N = size of array)
+
+The outer loop runs about N times.
+
+The inner loop runs fewer times each pass:
+
+1st pass → N-1 times
+2nd pass → N-2 times
+…
+Last pass → 1 time
+
+If we add them up:
+(N−1)+(N−2)+…+2+1=N(N−1)/2
+
+This simplifies to about N²/2 steps.
+
+**Effect on optimization on time complexity:**
+1. **Best case (already sorted):** Only one pass → O(N) time.
+2. **Worst case:** Still O(N²) (when the array is reversed).
+
+**Space Complexity:** O(1)
