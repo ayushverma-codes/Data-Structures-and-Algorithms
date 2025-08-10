@@ -207,3 +207,86 @@ void merge(vector <int> &arr, int low, int mid, int high){
 Reason: At each step, we divide the whole array, for that logn and we assume n steps are taken to get sorted array, so overall time complexity will be nlogn
 
 **Space complexity:** O(n)  
+
+## 5. Quick Sort
+
+- Quick sort is a divide-and-conquer algorithm.
+
+**Steps**
+1. Pick a pivot (common choices: first element, last element, middle element, or random).
+
+2. Partition the array so that:
+
+  - All elements smaller than or equal to pivot go to its left.
+
+  - All elements greater go to its right.
+
+3. Recursively apply quick sort on the left and right partitions.
+
+**Example:**
+
+              arr = 8 3 4 9 2
+
+              pivot = first element = 8
+
+              partition → 3 4 2 | 8 | 9
+
+              partition index = 3
+
+
+**Algorithm:**
+
+```
+quick_sort(vector<int> &arr, int low, int high){
+    if(low<high){
+        int partition_index = partition(arr, low, high);
+        quick_sort(arr, low, partition_index-1);
+        quick_sort(arr, partition_index+1, high);
+    }
+}
+```
+
+```
+int partition(vector<int> &arr, int low, int high){
+    int pivot = arr[low];
+    int i = low;
+    int j = high;
+    
+    while(i<j){
+
+        //find the larger element in left side
+        while (arr[i]<=pivot && i<=high-1)
+        {
+            i++;
+        }
+        
+        //find the smaller element in right side
+        while(arr[j]>pivot && j>=low+1){
+            j--;
+        }
+
+        if (i<j)
+        {
+            swap(arr[i],arr[j]);
+        }
+        
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+```
+
+**Time Complexity:** 
+
+Best Case: O(nlogn) 
+
+Average Case: O(nlogn) 
+
+Worst Case:	O(n^2)
+
+
+**Space complexity:**
+
+Best Case: O(logn)  [due to recursion stack]
+
+Worst Case:	O(n)    [due to unbalanced partitioning leading to a skewed recursion tree]
