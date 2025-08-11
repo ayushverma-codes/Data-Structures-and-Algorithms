@@ -290,3 +290,36 @@ Worst Case:	O(n^2)
 Best Case: O(logn)  [due to recursion stack]
 
 Worst Case:	O(n)    [due to unbalanced partitioning leading to a skewed recursion tree]
+
+## 6. Recursive Bubble Sort Algorithm
+
+- The normal bubble sort uses two loops.
+
+- In the recursive version, we:
+
+    - Let recursion handle the outer loop (number of passes).
+
+    - The inner loop still runs inside each recursive call to bubble the largest element to the end.
+
+
+**Steps**
+1. **Base case:** If the size of the array n is 1, it’s already sorted — return.
+
+2. **Bubble pass:** Loop through the array from index 0 to n-2:
+
+      - Compare arr[j] and arr[j+1].
+
+      - Swap if out of order.
+
+3. After this pass, the largest element is at the end.
+
+4. Recursive call: Call the same function for n-1 elements (ignore last sorted element).
+
+
+**Time Complexity:**
+
+**Worst / Average case:** O(N²)
+
+**Best case:** O(N) (if optimized with a flag to detect sorted array)
+
+**Space complexity:** O(N) due to recursion stack.
