@@ -323,3 +323,28 @@ Worst Case:	O(n)    [due to unbalanced partitioning leading to a skewed recursio
 **Best case:** O(N) (if optimized with a flag to detect sorted array)
 
 **Space complexity:** O(N) due to recursion stack.
+
+
+## 7. Recursive Insertion Sort Algorithm
+
+**Algorithm:**
+1. **Base Case:** If pos == n-1, the array is sorted → return.
+
+2. Starting from index pos, move backwards to 0:
+
+    - Compare each element with its next element.
+
+    - Swap if the previous element is greater.
+
+    - If no swap occurs in an iteration, break early (best case optimization).
+
+3. Call the function recursively for the next position: insertion_sort(arr, pos+1, n).
+
+**Time Complexity:**
+
+**Worst / Average case:** O(N²)
+
+**Best case:** O(N) due to early break.
+
+**Space complexity:** O(N)  for recursion stack (due to pos going from 0 → n-1).
+
